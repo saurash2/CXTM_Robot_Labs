@@ -85,10 +85,10 @@ devices:
         via: vty
     custom:
       categories:
-      - ios
-      - xr
-      - asr
-      - 9k
+        - ios
+        - xr
+        - asr
+        - 9k
     os: iosxr
     passwords:
       linux: c1cd123
@@ -107,8 +107,8 @@ devices:
       defaults:
         via: vty
     custom:
-       categories:
-       - ios
+      categories:
+        - ios
     os: ios
     passwords:
       linux: c1cd123
@@ -128,13 +128,14 @@ devices:
         via: vty
     custom:
       categories:
-      - junos
-    os: junos
+        - junos
+    os: linux
     passwords:
       linux: c1cd123
     tacacs:
       username: cicd
     type: router
+
 ```
 
 > You can view the contents of your topology file any time by navigating to `Topologies` within your CXTM project and then click on `Open`. From the pop up dialog box, select your topology name `testbed.yaml` to view its contents.
