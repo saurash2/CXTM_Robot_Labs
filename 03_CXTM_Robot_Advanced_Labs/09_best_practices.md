@@ -105,7 +105,7 @@ Library  CXTA
 Resource  cxta.robot
 
 *** Variables ***
-${DUT}  ${DUT}  cxtm_iox
+${DUT}  cxtm_iox
 ${LLDP_HOLDTIMER}  150
 
 *** Keywords ***
