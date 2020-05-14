@@ -1,0 +1,3 @@
+# 09_variables.yaml
+DUT: cxtm_iox
+LLDP_HOLDTIMER: 150

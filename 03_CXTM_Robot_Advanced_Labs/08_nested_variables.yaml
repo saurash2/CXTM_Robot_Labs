@@ -1,0 +1,40 @@
+# 08_nested_variables.yaml
+---
+interfaces:
+- name: Loopback0
+  ip: 100.0.0.1
+  mask: /32
+- name: GigabitEthernet0/0/0/1
+  ip: 10.21.1.2
+  mask: /30
+- name: MgmtEth0/0/CPU0/0
+  ip: 172.31.6.73
+  mask: /24
+
+
+
+
+devices:
+  cxtm_iox:
+    connections:
+      vty:
+        class: unicon.Unicon
+        ip: 163.162.174.54
+        password: 5602d925e01d8cbb11dfc1ca0f68f3c798cecb072414ee2f8c01b2aeed09fbeb
+        port: 1122
+        protocol: ssh
+        username: cicd
+      defaults:
+        via: vty
+    custom:
+      categories:
+      - ios
+      - xr
+      - asr
+      - 9k
+    os: iosxr
+    passwords:
+      linux: 5602d925e01d8cbb11dfc1ca0f68f3c798cecb072414ee2f8c01b2aeed09fbeb
+    tacacs:
+      username: cicd
+    type: router
