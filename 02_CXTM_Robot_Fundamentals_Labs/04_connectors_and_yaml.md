@@ -76,11 +76,11 @@ devices:
     connections:
       vty:
         class: unicon.Unicon
-        ip: 163.162.174.54
-        password: c1cd123
-        port: 1122
+        ip: xxxxxxxxxxxxxxxx
+        password: xxxxxxxxxxxxxxxx
+        port: xxxxxxxxxxxxxxxx
         protocol: ssh
-        username: cicd
+        username: xxxxxxxxxxxxxxxx
       defaults:
         via: vty
     custom:
@@ -91,19 +91,19 @@ devices:
         - 9k
     os: iosxr
     passwords:
-      linux: c1cd123
+      linux: xxxxxxxxxxxxxxxx
     tacacs:
-      username: cicd
+      username: xxxxxxxxxxxxxxxx
     type: router
   cxtm_ios:
     connections:
       vty:
         class: unicon.Unicon
-        ip: 163.162.174.54
-        password: c1cd123
-        port: 1222
+        ip: xxxxxxxxxxxxxxxx
+        password: xxxxxxxxxxxxxxxx
+        port: xxxxxxxxxxxxxxxx
         protocol: ssh
-        username: cicd
+        username: xxxxxxxxxxxxxxxx
       defaults:
         via: vty
     custom:
@@ -111,19 +111,19 @@ devices:
         - ios
     os: ios
     passwords:
-      linux: c1cd123
+      linux: xxxxxxxxxxxxxxxx
     tacacs:
-      username: cicd
+      username: xxxxxxxxxxxxxxxx
     type: router
   cxtm_junos:
     connections:
       vty:
         class: unicon.Unicon
-        ip: 163.162.174.54
-        password: c1cd123
-        port: 1322
+        ip: xxxxxxxxxxxxxxxx
+        password: xxxxxxxxxxxxxxxx
+        port: xxxxxxxxxxxxxxxx
         protocol: ssh
-        username: cicd
+        username: xxxxxxxxxxxxxxxx
       defaults:
         via: vty
     custom:
@@ -131,9 +131,9 @@ devices:
         - junos
     os: linux
     passwords:
-      linux: c1cd123
+      linux: xxxxxxxxxxxxxxxx
     tacacs:
-      username: cicd
+      username: xxxxxxxxxxxxxxxx
     type: router
 
 ```
