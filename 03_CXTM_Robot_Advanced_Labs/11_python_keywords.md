@@ -57,7 +57,7 @@ def print_message(message):
 
 Now that you have written your python keywords, you need to import them into Robot. Upload the python file to your `Project Attachments` and include it for Automation with path `/workspace`. You import your python keywords using the `Library` reserved word in the `Settings` section.
 
-> > Inside TC11 (Python Keywords) within your CXTM project, click on `Configure Automation` and put the following code in the file to import your python keywords.
+> Inside TC11 (Python Keywords) within your CXTM project, click on `Configure Automation` and put the following code in the file to import your python keywords.
 
 ```
 # 11_basic_python_keyword.robot
