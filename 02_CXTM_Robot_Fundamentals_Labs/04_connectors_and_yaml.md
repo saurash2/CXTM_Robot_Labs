@@ -72,68 +72,26 @@ CXTA uses a YAML file to represent the testing environment. This is referred to 
 testbed:
   name: CXTM Robot Training
 devices:
-  cxtm_iox:
+  cxtm_iosxe_1:
     connections:
       vty:
         class: unicon.Unicon
-        ip: xxxxxxxxxxxxxxxx
-        password: xxxxxxxxxxxxxxxx
-        port: xxxxxxxxxxxxxxxx
+        ip: x.x.x.x
+        password: admin123
+        port: 22
         protocol: ssh
-        username: xxxxxxxxxxxxxxxx
+        username: admin
       defaults:
         via: vty
     custom:
       categories:
         - ios
-        - xr
-        - asr
-        - 9k
-    os: iosxr
+        - xe
+    os: iosxe
     passwords:
-      linux: xxxxxxxxxxxxxxxx
+      linux: admin123
     tacacs:
-      username: xxxxxxxxxxxxxxxx
-    type: router
-  cxtm_ios:
-    connections:
-      vty:
-        class: unicon.Unicon
-        ip: xxxxxxxxxxxxxxxx
-        password: xxxxxxxxxxxxxxxx
-        port: xxxxxxxxxxxxxxxx
-        protocol: ssh
-        username: xxxxxxxxxxxxxxxx
-      defaults:
-        via: vty
-    custom:
-      categories:
-        - ios
-    os: ios
-    passwords:
-      linux: xxxxxxxxxxxxxxxx
-    tacacs:
-      username: xxxxxxxxxxxxxxxx
-    type: router
-  cxtm_junos:
-    connections:
-      vty:
-        class: unicon.Unicon
-        ip: xxxxxxxxxxxxxxxx
-        password: xxxxxxxxxxxxxxxx
-        port: xxxxxxxxxxxxxxxx
-        protocol: ssh
-        username: xxxxxxxxxxxxxxxx
-      defaults:
-        via: vty
-    custom:
-      categories:
-        - junos
-    os: linux
-    passwords:
-      linux: xxxxxxxxxxxxxxxx
-    tacacs:
-      username: xxxxxxxxxxxxxxxx
+      username: admin
     type: router
 
 ```
@@ -194,7 +152,7 @@ Resource  cxta.robot
 Variables   /workspace/04_yaml_basics.yaml
 
 *** Variables ***
-${DUT}   cxtm_ios    # Device Under Testing
+${DUT}   cxtm_iosxe_1    # Device Under Testing
 
 *** Test Cases ***
 Load Testbed
@@ -231,7 +189,7 @@ Connect To Device By Name And Specify Connection
 # 04_svs_connectors.robot
 *** Test Cases ***
 Connect To Device By Name
-    #${DUT}=  Set Variable  cxtm_ios
+    #${DUT}=  Set Variable  cxtm_iosxe_1
     connect to device "${DUT}"
     run "show version"
     disconnect from device "${DUT}"
@@ -285,32 +243,33 @@ Next we will see how to setup multiple connections to a device. Before we write 
 > Within your CXTM project, update the cxtm_ios device in the topology testbed file to read the following:
 
 ```
-cxtm_ios:
+cxtm_iosxe_1:
     connections:
       vty:
         class: unicon.Unicon
-        ip: 163.162.174.54
-        password: c1cd123
-        port: 1222
+        ip: x.x.x.x
+        password: admin123
+        port: 22
         protocol: ssh
-        username: cicd
+        username: admin
       vty2:
         class: unicon.Unicon
-        ip: 163.162.174.54
-        password: c1cd123
-        port: 1222
+        ip: x.x.x.x
+        password: admin123
+        port: 22
         protocol: ssh
-        username: cicd
+        username: admin
       defaults:
         via: vty
     custom:
       categories:
       - ios
-    os: ios
+      - xe
+    os: iosxe
     passwords:
-      linux: c1cd123
+      linux: admin123
     tacacs:
-      username: cicd
+      username: admin
     type: router
 ```
 
@@ -337,29 +296,6 @@ Switch Between Connections
 ```
 
 
-
-##### Step 8
-
-To connect to multiple devices, but not all devices, use the `Connect to devices “${devices}”` keyword. It takes a string as an argument, this string is the name of each device to connect to separated by a semicolon.
-
-> Connect to the IOS and Junos devices, run a command against each, then end both connections:
-
-```
-# 04_svs_connectors.robot
-*** Test Cases ***
-Connect To Two Devices
-    connect to devices "cxtm_ios;cxtm_junos"
-    use device "cxtm_ios"
-    run "show version"
-    use device "cxtm_junos"
-    run "set cli screen-length 0"
-    run "show system commit"
-    disconnect from all devices
-
-```
-
-
-
 ##### Solution
 
 ```
@@ -372,7 +308,7 @@ Resource  cxta.robot
 Variables   /workspace/04_yaml_basics.yaml
 
 *** Variables ***
-${DUT}   cxtm_ios    # Device Under Testing
+${DUT}   cxtm_iosxe_1    # Device Under Testing
 
 *** Test Cases ***
 Load Testbed
@@ -384,7 +320,7 @@ Connect To Device By Name And Specify Connection
     disconnect from current device
 
 Connect To Device By Name
-    #${DUT}=  Set Variable  cxtm_ios
+    #${DUT}=  Set Variable  cxtm_iosxe_1
     connect to device "${DUT}"
     run "show version"
     disconnect from device "${DUT}"
@@ -406,14 +342,5 @@ Switch Between Connections
     run "show version"
     use device "${DUT}" connection "vty2"
     run "show version"
-    disconnect from all devices
-
-Connect To Two Devices
-    connect to devices "cxtm_ios;cxtm_junos"
-    use device "cxtm_ios"
-    run "show version"
-    use device "cxtm_junos"
-    run "set cli screen-length 0"
-    run "show system commit"
     disconnect from all devices
 ```
