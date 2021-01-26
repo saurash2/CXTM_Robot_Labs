@@ -403,7 +403,7 @@ Library  CXTA
 Resource  cxta.robot
 
 *** Variables ***
-@{devices}  cxtm_iox  cxtm_ios
+@{devices}  cxtm_iosxe_1  cxtm_iosxe_2
 
 *** Test Cases ***
 Load Testbed
@@ -454,7 +454,7 @@ Library  CXTA
 Resource  cxta.robot
 
 *** Variables ***
-@{devices}  cxtm_iox  cxtm_ios
+@{devices}  cxtm_iosxe_1  cxtm_iosxe_2
 
 *** Test Cases ***
 Load Testbed
