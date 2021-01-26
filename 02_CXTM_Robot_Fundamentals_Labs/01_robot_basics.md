@@ -23,7 +23,7 @@ Robot jobfiles are basic text files with a .robot file extension. They have four
 
 ```
 
-To save the jobfile in CXTM, select `Job File Type` to `Script in CXTM`, `Runtime Image Type` to `cxta`, `Runtime Image Version` to `cxta: 19.12` and click on `Save`.
+To save the jobfile in CXTM, select `Job File Type` to `Script in CXTM`, `Runtime Image Type` to `cxta`, `Runtime Image Version` to `cxta: 20.13` and click on `Save`.
 Each Robot jobfile creates a Suite by default, a Suite is a collection of Robot test cases. When your execute a jobfile containing Robot tests, it organizes itself as a suite or is added to a larger Suite depending on how you configure it. You don't need to manage suite when using a single jobfile, we'll see in later labs how your can combine multiple jobfiles into larger test suites.
 
 
