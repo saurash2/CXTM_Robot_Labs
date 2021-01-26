@@ -72,15 +72,15 @@ CXTA uses a YAML file to represent the testing environment. This is referred to 
 testbed:
   name: CXTM Robot Training
 devices:
-  cxtm_iosxe_1:
+  cxtm_iosxe_1:  -> Replace this with correct hostname
     connections:
       vty:
         class: unicon.Unicon
-        ip: x.x.x.x
-        password: admin123
+        ip: x.x.x.x  -> Replace this with correct IP
+        password: admin123 -> Replace this with correct password
         port: 22
         protocol: ssh
-        username: admin
+        username: admin -> Replace this with correct username
       defaults:
         via: vty
     custom:
@@ -89,9 +89,9 @@ devices:
         - xe
     os: iosxe
     passwords:
-      linux: admin123
+      linux: admin123  -> Replace this with correct password
     tacacs:
-      username: admin
+      username: admin  -> Replace this with correct username
     type: router
 
 ```
